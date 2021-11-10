@@ -1,0 +1,51 @@
+.text{
+    color : red ;
+    font-size  : 20px;
+}
+
+textarea{
+    @extend .text ;
+}
+
+h1{
+    @extend .text;
+}
+
+@mixin btn-style {
+    border: 3px solid yellow;
+}
+
+.button{
+    @include btn-style();
+}
+
+
+@function background($color){
+    @if($color == white){
+        @return black;
+    }
+    @else{
+        @return white;
+    }
+}
+
+$list: "React","Spring","python";
+
+@function first($list){
+    @return nth($list,1);
+}
+
+.text{
+    color :    first($list);
+}
+
+@function last($list){
+    @return nth($list,-1);
+}
+.text2{
+    color: last($list);
+}
+
+.text{
+    color :    first($list);
+}
